@@ -8,59 +8,29 @@ const DrumMachine = () => {
   const [play, setPlay] = useState(false);
 
   const drumKeys = ['q', 'w', 'e', 'a', 's', 'd', 'z', 'x', 'c'];
-  const drumMap = {
-    Q: {
-      id: 'Closed HH',
-      url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3',
-    },
-    W: {
-      id: 'Open HH',
-      url: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3',
-    },
-    E: {
-      id: 'Clap',
-      url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3',
-    },
-    A: {
-      id: 'Kick',
-      url: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3',
-    },
-    S: {
-      id: "Kick n' Hat",
-      url: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3',
-    },
-    D: {
-      id: 'Heater 1',
-      url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3',
-    },
-    Z: {
-      id: 'Heater 2',
-      url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3',
-    },
-    X: {
-      id: 'Heater 3',
-      url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3',
-    },
-    C: {
-      id: 'Heater 4',
-      url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3',
-    },
+  const drumLabels = {
+    Q: 'Closed HH',
+    W: 'Open HH',
+    E: 'Clap',
+    A: 'Kick',
+    S: "Kick n' Hat",
+    D: 'Heater 1',
+    Z: 'Heater 2',
+    X: 'Heater 3',
+    C: 'Heater 4',
   };
 
   const handleClick = (e) => {
     setDrumKey(e.target.innerText);
     setDisplay(e.target.value);
     setPlay(true);
-    console.log(drumKey, display);
   };
 
   const handlePress = (e) => {
     if (drumKeys.includes(e.key.toLowerCase())) {
-      console.log(e.key.toLowerCase());
       setDrumKey(e.key);
-      setDisplay(drumMap[e.key.toUpperCase()].id);
+      setDisplay(drumLabels[e.key.toUpperCase()]);
       setPlay(true);
-      console.log(drumKey, display);
     }
   };
 
