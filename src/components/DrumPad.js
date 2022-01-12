@@ -51,7 +51,7 @@ const DrumPad = ({ drumKey, handleClick, handlePress }) => {
     <button
       id={drumMap[drumKey].id.replaceAll(' ', '-').replaceAll("'", '')}
       className={
-        'drum-pad bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded'
+        'drum-pad bg-blue-500 hover:bg-blue-700 text-white font-bold h-full w-full text-3xl py-4 rounded'
       }
       value={drumMap[drumKey].id}
       onClick={handleClick}
