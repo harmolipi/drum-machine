@@ -1,5 +1,5 @@
 const DrumDisplay = ({ drum }) => {
-  return <div id="drum-machine">{drum}</div>;
+  return <div id="display">{drum}</div>;
 };
 
 export default DrumDisplay;
