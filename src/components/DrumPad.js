@@ -2,39 +2,39 @@ import { useEffect } from 'react';
 
 const DrumPad = ({ drumKey, handleClick, handlePress }) => {
   const drumMap = {
-    q: {
+    Q: {
       id: 'Closed HH',
       url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3',
     },
-    w: {
+    W: {
       id: 'Open HH',
       url: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3',
     },
-    e: {
+    E: {
       id: 'Clap',
       url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3',
     },
-    a: {
+    A: {
       id: 'Kick',
       url: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3',
     },
-    s: {
+    S: {
       id: "Kick n' Hat",
       url: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3',
     },
-    d: {
+    D: {
       id: 'Heater 1',
       url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3',
     },
-    z: {
+    Z: {
       id: 'Heater 2',
       url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3',
     },
-    x: {
+    X: {
       id: 'Heater 3',
       url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3',
     },
-    c: {
+    C: {
       id: 'Heater 4',
       url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3',
     },
@@ -56,7 +56,7 @@ const DrumPad = ({ drumKey, handleClick, handlePress }) => {
       value={drumMap[drumKey].id}
       onClick={handleClick}
     >
-      {drumKey.toUpperCase()}
+      {drumKey}
       <audio className="clip" id={drumKey} src={drumMap[drumKey].url}></audio>
     </button>
   );
