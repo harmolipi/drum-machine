@@ -1,4 +1,6 @@
-const DrumPad = ({ drumKey, handleClick }) => {
+import { useEffect } from 'react';
+
+const DrumPad = ({ drumKey, handleClick, handlePress }) => {
   const drumMap = {
     Q: {
       id: 'Closed HH',
@@ -37,6 +39,13 @@ const DrumPad = ({ drumKey, handleClick }) => {
       url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3',
     },
   };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handlePress);
+    return () => {
+      document.removeEventListener('keydown', handlePress);
+    };
+  }, []);
 
   return (
     <button
