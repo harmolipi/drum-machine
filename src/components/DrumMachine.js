@@ -9,33 +9,33 @@ const DrumMachine = () => {
 
   const drumKeys = ['q', 'w', 'e', 'a', 's', 'd', 'z', 'x', 'c'];
   const drumLabels = {
-    Q: 'Closed HH',
-    W: 'Open HH',
-    E: 'Clap',
-    A: 'Kick',
-    S: "Kick n' Hat",
-    D: 'Heater 1',
-    Z: 'Heater 2',
-    X: 'Heater 3',
-    C: 'Heater 4',
+    q: 'Closed HH',
+    w: 'Open HH',
+    e: 'Clap',
+    a: 'Kick',
+    s: "Kick n' Hat",
+    d: 'Heater 1',
+    z: 'Heater 2',
+    x: 'Heater 3',
+    c: 'Heater 4',
   };
 
   const handleClick = (e) => {
-    setDrumKey(e.target.innerText);
+    setDrumKey(e.target.innerText.toLowerCase());
     setDisplay(e.target.value);
     setPlay(true);
   };
 
   const handlePress = (e) => {
     if (drumKeys.includes(e.key.toLowerCase())) {
-      setDrumKey(e.key);
-      setDisplay(drumLabels[e.key.toUpperCase()]);
+      setDrumKey(e.key.toLowerCase());
+      setDisplay(drumLabels[e.key.toLowerCase()]);
       setPlay(true);
     }
   };
 
   const playAudio = () => {
-    const audio = document.querySelector(`#${drumKey.toUpperCase()}`);
+    const audio = document.querySelector(`#${drumKey}`);
     audio.currentTime = 0;
     audio.play();
   };
@@ -51,47 +51,47 @@ const DrumMachine = () => {
     <div id="drum-machine" className="m-6">
       <DrumDisplay drum={display} />
       <DrumPad
-        drumKey="Q"
+        drumKey="q"
         handleClick={handleClick}
         handlePress={handlePress}
       />
       <DrumPad
-        drumKey="W"
+        drumKey="w"
         handleClick={handleClick}
         handlePress={handlePress}
       />
       <DrumPad
-        drumKey="E"
+        drumKey="e"
         handleClick={handleClick}
         handlePress={handlePress}
       />
       <DrumPad
-        drumKey="A"
+        drumKey="a"
         handleClick={handleClick}
         handlePress={handlePress}
       />
       <DrumPad
-        drumKey="S"
+        drumKey="s"
         handleClick={handleClick}
         handlePress={handlePress}
       />
       <DrumPad
-        drumKey="D"
+        drumKey="d"
         handleClick={handleClick}
         handlePress={handlePress}
       />
       <DrumPad
-        drumKey="Z"
+        drumKey="z"
         handleClick={handleClick}
         handlePress={handlePress}
       />
       <DrumPad
-        drumKey="X"
+        drumKey="x"
         handleClick={handleClick}
         handlePress={handlePress}
       />
       <DrumPad
-        drumKey="C"
+        drumKey="c"
         handleClick={handleClick}
         handlePress={handlePress}
       />
