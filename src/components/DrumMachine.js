@@ -1,23 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DrumDisplay from './DrumDisplay';
 import DrumPad from './DrumPad';
 
 const DrumMachine = () => {
   const [drumKey, setDrumKey] = useState('');
+  const [drumId, setDrumId] = useState('');
+  const [display, setDisplay] = useState('');
+  const [play, setPlay] = useState(false);
 
   const handleClick = (e) => {
-    setDrumKey(e.target.id);
-    const audio = document.querySelector(
-      `#${e.target.id.replaceAll(' ', '-').replaceAll("'", '')} > audio`
-    );
-    console.log(audio);
+    setDrumKey(e.target.innerText);
+    setDrumId(e.target.id);
+    setDisplay(e.target.value);
+    setPlay(true);
+    console.log(drumKey, drumId, display);
+  };
+
+  const playAudio = () => {
+    const audio = document.querySelector(`#${drumId} > audio`);
     audio.currentTime = 0;
     audio.play();
   };
 
+  useEffect(() => {
+    if (play) {
+      playAudio();
+      setPlay(false);
+    }
+  }, [play]);
+
   return (
     <div id="drum-machine" className="m-6">
-      <DrumDisplay drum={drumKey} />
+      <DrumDisplay drum={display} />
       <DrumPad drumKey="Q" handleClick={handleClick} />
       <DrumPad drumKey="W" handleClick={handleClick} />
       <DrumPad drumKey="E" handleClick={handleClick} />
