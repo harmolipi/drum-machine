@@ -4,7 +4,6 @@ import DrumPad from './DrumPad';
 
 const DrumMachine = () => {
   const [drumKey, setDrumKey] = useState('');
-  const [drumId, setDrumId] = useState('');
   const [display, setDisplay] = useState('');
   const [play, setPlay] = useState(false);
 
@@ -50,20 +49,18 @@ const DrumMachine = () => {
 
   const handleClick = (e) => {
     setDrumKey(e.target.innerText);
-    setDrumId(e.target.id);
     setDisplay(e.target.value);
     setPlay(true);
-    console.log(drumKey, drumId, display);
+    console.log(drumKey, display);
   };
 
   const handlePress = (e) => {
     if (drumKeys.includes(e.key.toLowerCase())) {
       console.log(e.key.toLowerCase());
       setDrumKey(e.key);
-      setDrumId(e.key);
       setDisplay(drumMap[e.key.toUpperCase()].id);
       setPlay(true);
-      console.log(drumKey, drumId, display);
+      console.log(drumKey, display);
     }
   };
 
