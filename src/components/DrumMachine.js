@@ -4,7 +4,7 @@ import DrumPad from './DrumPad';
 
 const DrumMachine = () => {
   const [drumKey, setDrumKey] = useState('');
-  const [display, setDisplay] = useState('');
+  const [display, setDisplay] = useState('Press a button!');
   const [play, setPlay] = useState(false);
 
   const drumKeys = ['q', 'w', 'e', 'a', 's', 'd', 'z', 'x', 'c'];
@@ -50,7 +50,7 @@ const DrumMachine = () => {
   return (
     <div id="drum-machine" className="m-6 max-w-xs mx-auto">
       <DrumDisplay drum={display} />
-      <div className="drum-pad-container grid grid-cols-3 gap-1">
+      <div className="drum-pad-container mx-auto mt-4 grid grid-cols-3 gap-3 justify-items-start">
         <DrumPad
           drumKey="q"
           handleClick={handleClick}
